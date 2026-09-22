@@ -1,0 +1,29 @@
+{
+  "contacts": [{"name": "Kumar", "upi_id": "kumar@okbank", "verified": true}],
+  "blocked": [
+    {"payload": "", "code": "QR_EMPTY"},
+    {"payload": "https://evil.example/pay", "code": "QR_URL_NOT_PAYMENT"},
+    {"payload": "http://bit.ly/abc", "code": "QR_URL_NOT_PAYMENT"},
+    {"payload": "www.evil.example", "code": "QR_URL_NOT_PAYMENT"},
+    {"payload": "javascript:alert(1)", "code": "QR_DANGEROUS_SCHEME"},
+    {"payload": "data:text/html,<script>", "code": "QR_DANGEROUS_SCHEME"},
+    {"payload": "upi://collect?pa=xy@ybl", "code": "QR_UPI_NOT_PAY"},
+    {"payload": "upi://pay?pa=a@ybl&pa=b@ybl", "code": "QR_DUPLICATE_FIELD"},
+    {"payload": "upi://pay?pa=abc@ybl&pa=xyz@ybl", "code": "QR_DUPLICATE_FIELD"},
+    {"payload": "upi://pay?pa=bad vpa", "code": "QR_BAD_VPA"},
+    {"payload": "upi://pay?pn=NoPayee", "code": "QR_BAD_VPA"},
+    {"payload": "upi://pay?pa=xy@ybl&cu=USD", "code": "QR_BAD_CURRENCY"},
+    {"payload": "upi://pay?pa=xy@ybl&am=-5", "code": "QR_BAD_AMOUNT"},
+    {"payload": "upi://pay?pa=xy@ybl&am=0", "code": "QR_BAD_AMOUNT"},
+    {"payload": "upi://pay?pa=xy@ybl&am=abc", "code": "QR_BAD_AMOUNT"},
+    {"payload": "just some text", "code": "QR_UNRECOGNISED"},
+    {"payload": "upi://pay?pa=xy@ybl&url=https://bit.ly/z", "code": "QR_SHORTENED_LINK"}
+  ],
+  "valid": [
+    {"payload": "upi://pay?pa=kumar@okbank&pn=Kumar&am=250&cu=INR&tn=Lunch", "known": true, "verified": true, "amount": 250, "warn": []},
+    {"payload": "upi://pay?pa=shop@ybl&pn=Corner%20Shop", "known": false, "amount": null, "warn": ["QR_UNKNOWN_PAYEE"]},
+    {"payload": "shop@ybl", "known": false, "amount": null, "warn": ["QR_UNKNOWN_PAYEE", "QR_NO_NAME"]},
+    {"payload": "upi://pay?pa=kumar@okbank&pn=Totally%20Different", "known": true, "amount": null, "warn": ["QR_NAME_MISMATCH"]},
+    {"payload": "upi://pay?pa=xy@ybl&pn=X&evil=1&url=https://shop.example/", "known": false, "amount": null, "warn": ["QR_UNEXPECTED_FIELDS", "QR_HAS_LINK", "QR_UNKNOWN_PAYEE"]}
+  ]
+}

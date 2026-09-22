@@ -1,0 +1,473 @@
+{
+ "contacts": [
+  {
+   "name": "Kumar"
+  },
+  {
+   "name": "Priya Sharma"
+  },
+  {
+   "name": "Lakshmi"
+  },
+  {
+   "name": "Arun Prakash"
+  },
+  {
+   "name": "Arun Kumar"
+  },
+  {
+   "name": "Meena"
+  },
+  {
+   "name": "Ravi"
+  }
+ ],
+ "cases": [
+  {
+   "text": "Kumar-ku 500 rooba anuppu",
+   "expect": {
+    "intent": "payment_request",
+    "amount": 500,
+    "recipient": "Kumar",
+    "recipient_status": "matched",
+    "language": "tanglish"
+   }
+  },
+  {
+   "text": "Kumar-ku 500 rupaai anuppu",
+   "expect": {
+    "intent": "payment_request",
+    "amount": 500,
+    "recipient": "Kumar"
+   }
+  },
+  {
+   "text": "send 500 to Kumar",
+   "expect": {
+    "intent": "payment_request",
+    "amount": 500,
+    "recipient": "Kumar",
+    "language": "en"
+   }
+  },
+  {
+   "text": "Send 250 rupees to Priya",
+   "expect": {
+    "intent": "payment_request",
+    "amount": 250,
+    "recipient": "Priya Sharma"
+   }
+  },
+  {
+   "text": "pay Meena 1200",
+   "expect": {
+    "intent": "payment_request",
+    "amount": 1200,
+    "recipient": "Meena"
+   }
+  },
+  {
+   "text": "please transfer Rs.1,500 to Ravi",
+   "expect": {
+    "intent": "payment_request",
+    "amount": 1500,
+    "recipient": "Ravi"
+   }
+  },
+  {
+   "text": "₹750 to Lakshmi",
+   "expect": {
+    "intent": "payment_request",
+    "amount": 750,
+    "recipient": "Lakshmi"
+   }
+  },
+  {
+   "text": "Lakshmi kku 250.50 rs anuppu",
+   "expect": {
+    "intent": "payment_request",
+    "amount": 250.5,
+    "recipient": "Lakshmi"
+   }
+  },
+  {
+   "text": "Priya ku ainooru rooba kudu",
+   "expect": {
+    "intent": "payment_request",
+    "amount": 500,
+    "recipient": "Priya Sharma"
+   }
+  },
+  {
+   "text": "Meena kku irunooru rooba anuppunga",
+   "expect": {
+    "intent": "payment_request",
+    "amount": 200,
+    "recipient": "Meena"
+   }
+  },
+  {
+   "text": "Ravi ku aayiram rooba anuppu",
+   "expect": {
+    "intent": "payment_request",
+    "amount": 1000,
+    "recipient": "Ravi"
+   }
+  },
+  {
+   "text": "Kumar ku irandu aayiram rooba anuppu",
+   "expect": {
+    "intent": "payment_request",
+    "amount": 2000,
+    "recipient": "Kumar"
+   }
+  },
+  {
+   "text": "Lakshmi ku aimbadhu rooba podu",
+   "expect": {
+    "intent": "payment_request",
+    "amount": 50,
+    "recipient": "Lakshmi"
+   }
+  },
+  {
+   "text": "transfer one thousand five hundred rupees to Meena",
+   "expect": {
+    "intent": "payment_request",
+    "amount": 1500,
+    "recipient": "Meena"
+   }
+  },
+  {
+   "text": "send five hundred to Kumar",
+   "expect": {
+    "intent": "payment_request",
+    "amount": 500,
+    "recipient": "Kumar"
+   }
+  },
+  {
+   "text": "send fifty rupees to Ravi",
+   "expect": {
+    "intent": "payment_request",
+    "amount": 50,
+    "recipient": "Ravi"
+   }
+  },
+  {
+   "text": "குமாருக்கு ஐநூறு ரூபாய் அனுப்பு",
+   "expect": {
+    "intent": "payment_request",
+    "amount": 500,
+    "recipient": "Kumar",
+    "language": "ta"
+   }
+  },
+  {
+   "text": "பிரியாவுக்கு ௨௦௦ ரூபாய் அனுப்பு",
+   "expect": {
+    "intent": "payment_request",
+    "amount": 200
+   }
+  },
+  {
+   "text": "மீனாவுக்கு நூறு ரூபாய் கொடு",
+   "expect": {
+    "intent": "payment_request",
+    "amount": 100
+   }
+  },
+  {
+   "text": "pay Arun 200",
+   "expect": {
+    "intent": "payment_request",
+    "amount": 200,
+    "recipient_status": "ambiguous"
+   }
+  },
+  {
+   "text": "Arun Kumar ku 300 anuppu",
+   "expect": {
+    "intent": "payment_request",
+    "amount": 300,
+    "recipient": "Arun Kumar",
+    "recipient_status": "matched"
+   }
+  },
+  {
+   "text": "send 300 to Suresh",
+   "expect": {
+    "intent": "payment_request",
+    "amount": 300,
+    "recipient": null,
+    "recipient_status": "unknown"
+   }
+  },
+  {
+   "text": "pay kumar",
+   "expect": {
+    "intent": "payment_request",
+    "amount": null,
+    "recipient": "Kumar",
+    "missing": [
+     "amount"
+    ]
+   }
+  },
+  {
+   "text": "500 rupees anuppu",
+   "expect": {
+    "intent": "payment_request",
+    "amount": 500,
+    "missing": [
+     "recipient"
+    ]
+   }
+  },
+  {
+   "text": "Kumar 500 1000",
+   "expect": {
+    "intent": "payment_request",
+    "amount": null,
+    "missing": [
+     "amount"
+    ]
+   }
+  },
+  {
+   "text": "send 50 to kumar@okbank",
+   "expect": {
+    "intent": "payment_request",
+    "amount": 50,
+    "upi_id": "kumar@okbank"
+   }
+  },
+  {
+   "text": "send 300 to 9876543210",
+   "expect": {
+    "intent": "payment_request",
+    "amount": 300,
+    "phone": "9876543210"
+   }
+  },
+  {
+   "text": "balance evlo irukku",
+   "expect": {
+    "intent": "balance_check"
+   }
+  },
+  {
+   "text": "what is my balance",
+   "expect": {
+    "intent": "balance_check"
+   }
+  },
+  {
+   "text": "என் இருப்பு எவ்வளவு",
+   "expect": {
+    "intent": "balance_check"
+   }
+  },
+  {
+   "text": "show my transaction history",
+   "expect": {
+    "intent": "transaction_history"
+   }
+  },
+  {
+   "text": "last payment to kumar",
+   "expect": {
+    "intent": "transaction_history",
+    "query": "kumar"
+   }
+  },
+  {
+   "text": "பரிவர்த்தனை வரலாறு",
+   "expect": {
+    "intent": "transaction_history"
+   }
+  },
+  {
+   "text": "scan qr",
+   "expect": {
+    "intent": "scan_qr_help"
+   }
+  },
+  {
+   "text": "QR scan pannu",
+   "expect": {
+    "intent": "scan_qr_help"
+   }
+  },
+  {
+   "text": "recharge 199",
+   "expect": {
+    "intent": "bill_recharge",
+    "amount": 199
+   }
+  },
+  {
+   "text": "go home",
+   "expect": {
+    "intent": "navigate",
+    "target": "home"
+   }
+  },
+  {
+   "text": "back",
+   "expect": {
+    "intent": "navigate",
+    "target": "back"
+   }
+  },
+  {
+   "text": "open settings",
+   "expect": {
+    "intent": "navigate",
+    "target": "settings"
+   }
+  },
+  {
+   "text": "help",
+   "expect": {
+    "intent": "help"
+   }
+  },
+  {
+   "text": "yes",
+   "expect": {
+    "intent": "confirm_yes"
+   }
+  },
+  {
+   "text": "aama",
+   "expect": {
+    "intent": "confirm_yes"
+   }
+  },
+  {
+   "text": "சரி",
+   "expect": {
+    "intent": "confirm_yes"
+   }
+  },
+  {
+   "text": "no",
+   "expect": {
+    "intent": "confirm_no"
+   }
+  },
+  {
+   "text": "illa venam",
+   "expect": {
+    "intent": "confirm_no"
+   }
+  },
+  {
+   "text": "cancel",
+   "expect": {
+    "intent": "confirm_no"
+   }
+  },
+  {
+   "text": "வேண்டாம்",
+   "expect": {
+    "intent": "confirm_no"
+   }
+  },
+  {
+   "text": "my pin is 1234",
+   "expect": {
+    "intent": "secret_warning"
+   }
+  },
+  {
+   "text": "otp 654321 send 500 to Kumar",
+   "expect": {
+    "intent": "secret_warning"
+   }
+  },
+  {
+   "text": "show my monthly expenses",
+   "expect": {
+    "intent": "insights"
+   }
+  },
+  {
+   "text": "selavu evlo",
+   "expect": {
+    "intent": "insights"
+   }
+  },
+  {
+   "text": "இந்த மாத செலவு",
+   "expect": {
+    "intent": "insights"
+   }
+  },
+  {
+   "text": "spending insights",
+   "expect": {
+    "intent": "insights"
+   }
+  },
+  {
+   "text": "the weather is nice",
+   "expect": {
+    "intent": "unknown"
+   }
+  },
+  {
+   "text": "",
+   "expect": {
+    "intent": "unknown"
+   }
+  }
+ ],
+ "confirmations": [
+  {
+   "text": "yes",
+   "expect": "yes"
+  },
+  {
+   "text": "aama",
+   "expect": "yes"
+  },
+  {
+   "text": "seri",
+   "expect": "yes"
+  },
+  {
+   "text": "ஆமாம்",
+   "expect": "yes"
+  },
+  {
+   "text": "no",
+   "expect": "no"
+  },
+  {
+   "text": "illa",
+   "expect": "no"
+  },
+  {
+   "text": "venam",
+   "expect": "no"
+  },
+  {
+   "text": "இல்லை",
+   "expect": "no"
+  },
+  {
+   "text": "seri illa",
+   "expect": "unclear"
+  },
+  {
+   "text": "hmm maybe",
+   "expect": "unclear"
+  },
+  {
+   "text": "yes no",
+   "expect": "unclear"
+  }
+ ]
+}

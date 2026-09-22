@@ -1,0 +1,12 @@
+backend/.venv/
+backend/.env
+__pycache__/
+*.pyc
+.pytest_cache/
+node_modules/
+.claude/
+.DS_Store
+Thumbs.db
+*.log
+package-lock.json.bak
+frontend/tests/e2e/*.tmp.*
